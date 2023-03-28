@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숙제</title>
+  </head>
+  <body>
+    <h1>first_assignment</h1>
+  </body>
+</html>
+<script>
+  // 데이터 입력 및 배열만들기--------------------------------
+  let s = [
+    { name: "홍길동", 근무시간: 40, 시급: 10000 },
+    { name: "임꺽정", 근무시간: 15, 시급: 20000 },
+    { name: "장길산", 근무시간: 20, 시급: 20000 },
+    { name: "강감찬", 근무시간: 30, 시급: 15000 },
+    { name: "이순신", 근무시간: 40, 시급: 30000 },
+  ];
+
+  for (i = 0; i < s.length; i++) {
+    s[i].total = s[i].근무시간 * s[i].시급;
+  }
+  // 출력 4가지 방법------------------------------------------
+  for (i = 0; i < s.length; i++) {
+    console.log(
+      `이름 : ${s[i].name} 근무시간 : ${s[i].근무시간} 시간당급여액 : ${s[i].시급} 총액 : ${s[i].total}`
+    );
+  }
+
+  for (i in s) {
+    console.log(
+      `이름 : ${s[i].name} 근무시간 : ${s[i].근무시간} 시간당급여액 : ${s[i].시급} 총액 : ${s[i].total}`
+    );
+  }
+
+  for (item of s) {
+    console.log(
+      `이름 : ${item.name} 근무시간 : ${item.근무시간} 시간당급여액 : ${item.시급} 총액 : ${item.total}`
+    );
+  }
+
+  s.forEach((e) => {
+    console.log(
+      `이름 : ${e.name} 근무시간 : ${e.근무시간} 시간당급여액 : ${e.시급} 총액 : ${e.total}`
+    );
+  });
+</script>
