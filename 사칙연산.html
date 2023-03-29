@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Calulator</h1>
+    x:<input type="text" name="xvalue" id="xvalue" />&nbsp;&nbsp; y:<input
+      type="text"
+      name="yvalue"
+      id="yvalue"
+    /><br />
+    <br />
+    <hr />
+    <button onclick="add('1')">더하기</button>&nbsp;&nbsp;
+    <button onclick="add('2')">빼기</button>&nbsp;&nbsp;
+    <button onclick="add('3')">곱하기</button>&nbsp;&nbsp;
+    <button onclick="add('4')">나누기</button><br />
+    result : <span id="result"></span>
+  </body>
+</html>
+<script>
+  function add(oper) {
+    //1.데이터를 태그로부터 가져오기
+    x = document.getElementById("xvalue").value;
+    y = document.getElementById("yvalue").value;
+    //2.연산하기
+
+    if (oper == "1") 
+        result = parseInt(x) + parseInt(y);
+    else if (oper == "2") 
+        result = parseInt(x) - parseInt(y);
+    else if (oper == "3") 
+        result = parseInt(x) * parseInt(y);
+    else 
+        result = parseInt(x) / parseInt(y);
+
+    //3.연산된 값 출력하기
+    document.getElementById("result").innerHTML = result;
+  }
+</script>
