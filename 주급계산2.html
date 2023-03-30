@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>시간외 수당 안받고 야근 안할래요</h1>
+    이름 :<input type="text" name="name" id="name" />&nbsp;&nbsp; 
+    근무시간 :<input type="text" name="worktime" id="worktime" />&nbsp;&nbsp; 
+    시간당급여액 :<input type="text" name="perpay" id="perpay" />
+    <br /><hr />
+    <button onclick="cal()">급여계산</button><br />
+    <button type="reset" onclick="goClear()">새로입력</button><br/>
+    <span id="result">결과</span>
+
+  </body>
+</html>
+<script>
+  function cal() {
+    //1.데이터를 태그로부터 가져오기(===입력)
+    name = document.getElementById("name").value;
+    worktime = document.getElementById("worktime").value;
+    perpay = document.getElementById("perpay").value;
+    worktime = parseInt(worktime);
+    perpay = parseInt(perpay);
+
+    //2.연산하기
+        basePay = worktime*perpay;
+
+        if(worktime > 20){
+          overTimePay = (worktime-20)*perpay*0.5
+        }
+        else{
+          overTimePay =0
+        }
+        result = basePay+overTimePay;
+  function goClear() 
+        {
+          document.ElementById("name").value="";
+          document.getElementById("worktime").value="";
+          document.getElementById("perpay").value="";
+        }   
+    //3.연산된 값 출력하기
+    temp = `${name}의 기본급은 ${basePay}이고 초과수당은 ${overTimePay}이고
+    총급여는 ${basePay+overTimePay}입니다`
+    document.getElementById("result").innerHTML = temp;
+  }
+</script>
+
+<!-- result = parseInt(x) * parseInt(y)+ -->

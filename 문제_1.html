@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>재미있는 사각형 면적 구하기</h1>
+    가로 :<input type="text" name="xvalue" id="xvalue" />&nbsp;&nbsp; 
+    세로 :<input type="text" name="yvalue" id="yvalue" />
+       <br /><hr />
+    <button onclick="add()">면적계산</button><br />
+    면적 : <span id="result"></span><br />
+  </body>
+</html>
+<script>
+  function add() {
+    //1.데이터를 태그로부터 가져오기
+    x = document.getElementById("xvalue").value;
+    y = document.getElementById("yvalue").value;
+    //2.연산하기
+      result = parseInt(x) * parseInt(y);
+
+    //3.연산된 값 출력하기
+    document.getElementById("result").innerHTML = result;
+
+  }
+</script>
+
+<!-- result = parseInt(x) * parseInt(y)+ -->
