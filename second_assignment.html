@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>성적확인</h1>
+    이름 : <input type="text" id="name"/><br />
+    국어 : <input type="text" id="ko"/><br />
+    영어 : <input type="text" id="en"/><br />
+    수학 : <input type="text" id="ma"/><br />
+    <button type="button" id="btnCal" onclick="btnCal()">결과확인</button>
+
+    <div id="result">결과입니다.</div>
+
+</body>
+</html>
+<script>
+    function btnCal() {
+    //1.데이터를 태그로부터 가져오기(===입력)
+    name = document.getElementById("name").value;
+    ko = document.getElementById("ko").value;
+    en = document.getElementById("en").value;
+    ma = document.getElementById("ma").value;
+    ko = parseInt(ko);
+    en = parseInt(en);
+    ma = parseInt(ma);
+
+    if((ko > 100 || ko < 0)||(en > 100 || en < 0)||(ma > 100 || ma < 0)){
+    if(ko > 100 || ko < 0){
+    alert("'국어' 성적의 입력범위 오류. 0~100까지만 입력 가능합니다.");
+    document.getElementById("ko").value = ""; //input 태그값 초기화
+    }
+    if(en > 100 || en < 0){
+    alert("'영어' 성적의 입력범위 오류. 0~100까지만 입력 가능합니다.");
+    document.getElementById("en").value = ""; //input 태그값 초기화
+    }
+    if(ma > 100 || ma < 0){
+    alert("'수학' 성적의 입력범위 오류. 0~100까지만 입력 가능합니다.");
+    document.getElementById("ma").value = ""; //input 태그값 초기화
+    }
+    }
+    else{    
+    sum = ko+en+ma;
+    avg = sum/3;
+    }
+
+    //3.연산된 값 출력하기
+    temp = `${name}의 총점은 ${sum}이고 평균점수는 ${avg}입니다.`
+    document.getElementById("result").innerHTML = temp;
+    }
+</script>
