@@ -35,6 +35,8 @@ async function mysqlRead(sql,params)
     return promise;
 }
 exports.mysqlRead = mysqlRead;
+exports.DBInfo = DBInfo;
+
 
 /* `select * from tb_board where id=${id}`
 
