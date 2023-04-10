@@ -19,18 +19,18 @@
   <h1 style="margin-top: 80px;">로그온</h1>
 
   <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="아이디" id ="userid">
+    <input type="text" class="form-control" placeholder="아이디" id ="userid" name ="userid">
   </div>
 
   <div class="input-group mb-3">
-    <input type="password" class="form-control" placeholder="페스워드" id ="password">
+    <input type="password" class="form-control" placeholder="페스워드" id ="password" name ="password">
   </div>
 
   	<div class="container" style="text-align:right">
 	 
 	  <div class="btn-group">
 	    
-       <button type="button" class="btn btn-primary" id ="btnlogon">로그온</button>&nbsp;&nbsp;
+       <button type="button" class="btn btn-primary" id ="btnLogin">로그온</button>&nbsp;&nbsp;
       
 	    <button type="button" class="btn btn-primary" id ="btnCancel">취소</button>&nbsp;&nbsp;
 	  </div>
@@ -42,27 +42,35 @@
 </html>
 
 <script>
-      $("#btnlogon").click(()=>{
-        logon();
-
-    function logon(){
-      let userid = $("#userid").val();
-      let password = $("#password").val();
-
-    $.ajax({
-        url:"/member/put",
-        data:{userid:userid, password:password},
-        method:"post",
-        dataType:"json"
-      }).then((result)=>{
-        if(result.result=="success")
+  
+$(document).ready(()=>{
+  $("#btnLogin").click(goLogon); //goLogon() - 함수를 실행한 결과가 전달
+                                 //goLogon 함수의 주소만 전달
+  $("#btnCancel").click(goCancel);
+})
+  function goLogon()
+  {
+    $.ajax(
+      {
+        url:"/member/login",
+        data:{userid:$("#userid").val(), password:$("#password").val()},
+        dataType:"json",
+        method:"post"
+      })
+      .done((res)=>{
+        console.log(res.result);
+        if(res.result=="success")
         {
-          alert("로그온되었다");
+          alert(res.msg);
+          location.href="/"; //첫번째 페이지로
+        }
+        else{
+          alert(res.msg);
         }
       })
-      .catch((res,status,error)=>{
+      .fail((res,status,error)=>{
         console.log(status);
-      });
+      })
   }
-});
+  function goCancel(){}
 </script>
