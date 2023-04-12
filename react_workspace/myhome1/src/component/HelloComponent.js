@@ -1,4 +1,4 @@
-import React ,{Component, useState} from "react";
+import React ,{Component, useState} from "react"; //useState 삭제가능
 
 class HelloComponent extends Component{
     sayHello()

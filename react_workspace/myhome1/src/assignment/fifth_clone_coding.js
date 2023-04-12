@@ -1,7 +1,6 @@
 
 import React ,{useState} from "react";
 
-
 function Fifth_clone_coding(){
     const [x, setX]=React.useState(0);
     const [y, setY]=React.useState(0);
