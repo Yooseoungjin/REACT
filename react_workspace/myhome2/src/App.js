@@ -7,6 +7,8 @@ import BoardList from './component/board/BoardList.js';
 import BoardWrite from './component/board/BoardWrite.js';
 /* import BoardView from './component/board/BoardView.js'; */
 import ScoreListFront from './component/score/ScoreListFront.js';
+import HeroList from './component/hero/HeroList.js';
+import HeroWrite from './component/hero/HeroWrite.js';
 
 
 function App() {
@@ -20,6 +22,10 @@ function App() {
             <Route path="/board/write" element={<BoardWrite/>}/>
             <Route path="/board/view/:id" element={<BoardWrite/>}/>
             <Route path="/score/list" element={<ScoreListFront/>}/>
+
+            <Route path="/hero/list" element={<HeroList/>}/>
+            <Route path="/hero/write" element={<HeroWrite/>}/>
+            <Route path="/hero/view/:id" element={<HeroWrite/>}/>
           </Route>
         </Routes>
     </div>

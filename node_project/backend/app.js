@@ -13,7 +13,8 @@ let usersRouter = require('./routes/users');
 let boardRouter = require('./routes/board');
 let memberRouter = require('./routes/member');
 let heroRouter = require('./routes/hero');
-let scoreRouter = require('./routes/ScoreListBack');
+let RestBoardRouter = require('./routes/rest_board');
+let scoreRouter = require('./routes/ScoreListBack'); //ScoreList의 백엔드 개발
 
 let app = express();
 
@@ -45,7 +46,9 @@ app.use('/users', usersRouter);
 app.use('/board', boardRouter);
 app.use('/member', memberRouter);
 app.use('/hero', heroRouter);
+app.use('/rest_board', RestBoardRouter);
 app.use('/score', scoreRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
